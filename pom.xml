@@ -70,6 +70,59 @@
                 </plugins>
             </build>
         </profile>
+        
+            <profile>
+            <id>trip</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <profile.name>TripPlanner</profile.name>
+            </properties>
+            <build>
+               <resources>
+                    <resource>
+                        <directory>src/test/java/general/ahqautomation/tripPlanner/resources</directory>
+                        <includes>
+                            <include>*.properties</include>
+                        </includes>
+                    </resource>
+                </resources>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <inherited>true</inherited>
+                        <configuration>
+                            <source>1.8</source>
+                            <target>1.8</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.17</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <profileId>qa</profileId>
+                                <testEndpoint>https://to.be.used.with.framework/</testEndpoint>
+                                <testPort>8080</testPort>
+                                <basePath>resources/</basePath>
+                                <webdriver.base.url>https://to.be.used.with.framework/</webdriver.base.url>
+                                <dbAddress>jdbc:jtds:sqlserver://xxx</dbAddress>
+                                <dbUsername>test</dbUsername>
+                                <dbPassword>test</dbPassword>
+                            </systemPropertyVariables>
+							<includes>
+								<exclude>**/ahqautomation/tripPlanner/testRunner/Runner.java</exclude>
+							</includes>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+        
      </profiles>
 
   <dependencies>

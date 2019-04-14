@@ -1,0 +1,29 @@
+set @formxml = '
+<form xmlns="http://www.limehousesoftware.co.uk">
+  <tab xmlns="http://www.limehousesoftware.co.uk" id="001">
+    <label display="true">Page1</label>
+    <body xmlns="http://www.w3.org/1999/xhtml">
+      <p>This survey is for auto testing of Text field</p>
+    </body>
+    <questions>
+       <question xmlns="http://www.limehousesoftware.co.uk" confidentiality="no" id="representationXml:question-1" print="normal" templateMode="text">
+        <rules>
+          <rule id="mandatory" />
+          <rule id="maxlength">20</rule>
+          <rule id="minlength">0</rule>
+        </rules>
+        <label display="true">Text field label</label>
+        <body xmlns="http://www.w3.org/1999/xhtml">
+          <p>Text field Body</p>
+        </body>
+        <singleQuestion>
+          <label>Enter alphanumeric text</label>
+        </singleQuestion>
+        <answers>
+          <answer size="1000" type="text" />
+        </answers>
+      </question>
+    </questions>
+  </tab>
+</form>
+'
